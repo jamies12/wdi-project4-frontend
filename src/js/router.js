@@ -18,6 +18,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/login',
       templateUrl: '/templates/login.html',
       controller: 'LoginController as login'
+    })
+    .state('space', {
+      url: '/space',
+      templateUrl: '/templates/space.html',
+      controller: 'SpaceController as space'
     });
 
   $urlRouterProvider.otherwise('/users');
