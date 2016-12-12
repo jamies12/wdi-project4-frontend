@@ -4,11 +4,11 @@ angular.module('spaces')
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('usersIndex', {
-      url: '/users',
-      templateUrl: '/templates/usersIndex.html',
-      controller: 'UsersIndexController as usersIndex'
-    })
+    // .state('usersIndex', {
+    //   url: '/users',
+    //   templateUrl: '/templates/usersIndex.html',
+    //   controller: 'UsersIndexController as usersIndex'
+    // })
     .state('register', {
       url: '/register',
       templateUrl: '/templates/register.html',
@@ -19,11 +19,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/login.html',
       controller: 'LoginController as login'
     })
-    .state('space', {
-      url: '/space',
-      templateUrl: '/templates/space.html',
-      controller: 'SpaceController as space'
+    .state('spaceIndex', {
+      url: '/spaces',
+      templateUrl: '/templates/spaceIndex.html',
+      controller: 'SpaceIndexController as spaceIndex'
     });
 
-  $urlRouterProvider.otherwise('/users');
+  $urlRouterProvider.otherwise('/spaces');
 }
