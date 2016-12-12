@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-drag-and-drop-lists": "^1.4.0",
     "express": "^4.14.0",
     "gulp-filter": "^4.0.0",
     "gulp-flatten": "^0.3.1",

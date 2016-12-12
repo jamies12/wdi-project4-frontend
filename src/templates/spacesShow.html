@@ -1,9 +1,10 @@
 <h1>{{ spacesShow.space.name }}</h1>
 
 <ul>
-  <div ng-repeat="content in spacesShow.space.contents">
-    {{ content.text || content.image || content.title }}
-    <button ng-click="spacesShow.deleteContent()"></button>
+  <div ng-repeat="content in spacesShow.space.contents" ng-class="content.content_type">
+    <img ng-src="{{ content.body }}" ng-if="content.content_type === 'image'">
+    <p ng-if="content.content_type === 'text'">{{ content.body}}</p>
+    <button ng-click="spacesShow.deleteContent(content)">X</button>
   </div>
 </ul>
 

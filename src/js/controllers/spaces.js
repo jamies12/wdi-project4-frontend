@@ -20,11 +20,13 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
 
   spacesShow.isLoggedIn = $auth.isAuthenticated;
 
-  function remove() {
-    Content.remove({ id: spacesShow.space.contents.id }, () => {
-      $state.go('spacesShow');
+  function remove(content) {
+    Content.remove({ id: content.id }, () => {
+      $state.reload();
     });
   }
+
+
 
   spacesShow.deleteContent = remove;
 }
