@@ -19,10 +19,15 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/login.html',
       controller: 'LoginController as login'
     })
-    .state('spaceIndex', {
+    .state('spacesIndex', {
       url: '/spaces',
-      templateUrl: '/templates/spaceIndex.html',
-      controller: 'SpaceIndexController as spaceIndex'
+      templateUrl: '/templates/spacesIndex.html',
+      controller: 'SpacesIndexController as spacesIndex'
+    })
+    .state('spacesShow', {
+      url: '/spaces/:id',
+      templateUrl: '/templates/spacesShow.html',
+      controller: 'SpacesShowController as spacesShow'
     });
 
   $urlRouterProvider.otherwise('/spaces');

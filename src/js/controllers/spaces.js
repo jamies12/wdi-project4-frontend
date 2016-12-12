@@ -1,17 +1,25 @@
 angular.module('spaces')
-  .controller('SpaceIndexController', SpaceIndexController);
+  .controller('SpacesIndexController', SpacesIndexController)
+  .controller('SpacesShowController', SpacesShowController);
 
-SpaceIndexController.$inject = ['Space', 'User', '$auth'];
-function SpaceIndexController(Space, User, $auth) {
-  const spaceIndex = this;
+SpacesIndexController.$inject = ['Space', 'User', '$auth'];
+function SpacesIndexController(Space, User, $auth) {
+  const spacesIndex = this;
 
-  spaceIndex.all = Space.query();
-  console.log(spaceIndex.all);
+  spacesIndex.all = Space.query();
 
-  // space.isCurrentUser = isCurrentUser;
-  // space.user = User.get($state.params);
+  spacesIndex.user = User.get({ id: $auth.getPayload().id });
 }
 
+SpacesShowController.$inject = ['Space', '$state', '$auth', 'User'];
+function SpacesShowController(Space, $state, $auth, User) {
+  const spacesShow = this;
+
+  spacesShow.user = User.get({ id: $auth.getPayload().id });
+  spacesShow.space = Space.get({ id: $state.params.id });
+
+  spacesShow.isLoggedIn = $auth.isAuthenticated;
+}
 
 // function isCurrentUser() {
 //   return $auth.getPayload().id === Number($state.params.id);
