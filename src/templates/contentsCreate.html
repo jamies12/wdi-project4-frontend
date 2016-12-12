@@ -1,0 +1,29 @@
+<h2>Add new content to your space</h2>
+
+<form ng-submit="contentsNew.create()">
+    <div>
+      <label>
+        Text
+        <input type="radio" name="content_type" value="text" ng-model="contentsNew.newContent.content_type">
+      </label>
+      <label>
+        Image
+        <input type="radio" name="content_type" value="image" ng-model="contentsNew.newContent.content_type">
+      </label>
+      <label>
+        Audio
+        <input type="radio" name="content_type" value="audio" ng-model="contentsNew.newContent.content_type">
+      </label>
+    </div>
+
+    <div ng-show="contentsNew.newContent.content_type === 'text'">
+      <textarea name="text" type="text" placeholder="text" ng-model="contentsNew.newContent.text"></textarea>
+    </div>
+    <div ng-show="contentsNew.newContent.content_type === 'image'">
+      <drag-drop base64="contentsNew.newContent.base64" name="image" placeholder="image" src="contentsNew.newContent.image"></drag-drop>
+    </div>
+    <div ng-show="contentsNew.newContent.content_type === 'audio'">
+      <input name="audio" type="string" placeholder="audio" ng-model="contentsNew.newContent.audio"></input>
+    </div>
+    <button>Add your content</button>
+  </form>

@@ -28,6 +28,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/spaces/:id',
       templateUrl: '/templates/spacesShow.html',
       controller: 'SpacesShowController as spacesShow'
+    })
+    .state('contentsNew', {
+      url: '/spaces/:id/contents/new',
+      templateUrl: '/templates/contentsCreate.html',
+      controller: 'ContentsNewController as contentsNew'
     });
 
   $urlRouterProvider.otherwise('/spaces');

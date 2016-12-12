@@ -1,7 +1,10 @@
 <h1>{{ spacesShow.space.name }}</h1>
 
 <ul>
-  <li ng-repeat="content in spacesShow.space.contents">
-    {{ content }}
-  </li>
+  <div ng-repeat="content in spacesShow.space.contents">
+    {{ content.text || content.image || content.title }}
+    <button ng-click="spacesShow.deleteContent()"></button>
+  </div>
 </ul>
+
+<a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>

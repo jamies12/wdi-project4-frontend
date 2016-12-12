@@ -11,14 +11,22 @@ function SpacesIndexController(Space, User, $auth) {
   spacesIndex.user = User.get({ id: $auth.getPayload().id });
 }
 
-SpacesShowController.$inject = ['Space', '$state', '$auth', 'User'];
-function SpacesShowController(Space, $state, $auth, User) {
+SpacesShowController.$inject = ['Space', '$state', '$auth', 'User', 'Content'];
+function SpacesShowController(Space, $state, $auth, User, Content) {
   const spacesShow = this;
 
   spacesShow.user = User.get({ id: $auth.getPayload().id });
   spacesShow.space = Space.get({ id: $state.params.id });
 
   spacesShow.isLoggedIn = $auth.isAuthenticated;
+
+  function remove() {
+    Content.remove({ id: spacesShow.space.contents.id }, () => {
+      $state.go('spacesShow');
+    });
+  }
+
+  spacesShow.deleteContent = remove;
 }
 
 // function isCurrentUser() {
