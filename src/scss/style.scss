@@ -1,15 +1,27 @@
-#background {
+.space-wrapper {
   height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#background {
+  position: inherit;
+  height: 95%;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
  }
 
 img, .image {
-  height: 220px;
+  height: 140px;
+  width: 280px;
 }
 
 .content.text {
   border-style: none;
   font-size: 16px;
 }
+
+// ul[dnd-list], ul[dnd-list] > div {
+//     position: relative;
+// }

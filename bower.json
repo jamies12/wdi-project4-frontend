@@ -19,6 +19,7 @@
     "angular-resource": "^1.6.0",
     "angular-ui-router": "^0.3.2",
     "satellizer": "^0.15.5",
-    "angular-drag-and-drop-lists": "^1.4.0"
+    "angular-drag-and-drop-lists": "^1.4.0",
+    "angular-gridster": "^0.13.15"
   }
 }

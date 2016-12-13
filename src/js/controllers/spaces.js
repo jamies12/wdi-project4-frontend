@@ -32,6 +32,8 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
     });
   }
 
+  
+
   spacesShow.changeBackground = changeBackground;
   spacesShow.deleteContent = remove;
 }
