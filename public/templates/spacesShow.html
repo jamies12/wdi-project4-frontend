@@ -1,11 +1,27 @@
-<h1>{{ spacesShow.space.name }}</h1>
 
-<ul>
-  <div ng-repeat="content in spacesShow.space.contents" ng-class="content.content_type">
-    <img ng-src="{{ content.body }}" ng-if="content.content_type === 'image'">
-    <p ng-if="content.content_type === 'text'">{{ content.body}}</p>
-    <button ng-click="spacesShow.deleteContent(content)">X</button>
+<form ng-submit="spacesShow.changeBackground()">
+  <div>
+    <drag-drop base64="spacesShow.space.base64"></drag-drop>
   </div>
-</ul>
+  <button>Change background</button>
+</form>
 
-<a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>
+
+
+<section id="background" style="background-image: url({{spacesShow.space.image}})">
+  <h1>{{ spacesShow.space.name }}</h1>
+
+
+  <!-- <div class="background"> -->
+  <ul>
+    <div ng-repeat="content in spacesShow.space.contents" ng-class="content.content_type">
+      <img ng-src="{{ content.body }}" ng-if="content.content_type === 'image'">
+      <p ng-if="content.content_type === 'text'">{{ content.body}}</p>
+      <button ng-click="spacesShow.deleteContent(content)">X</button>
+    </div>
+  </ul>
+
+  <a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>
+
+<!-- </div> -->
+</section>

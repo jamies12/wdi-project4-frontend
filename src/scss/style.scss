@@ -1,13 +1,12 @@
-.background {
-   z-index: -1;
-  //  background-color: blue;
-   height: 100%;
-   width: 100%;
+#background {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
  }
 
 img, .image {
   height: 220px;
-  // width: 350px;
 }
 
 .content.text {

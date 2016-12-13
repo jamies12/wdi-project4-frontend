@@ -26,8 +26,13 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
     });
   }
 
+  function changeBackground() {
+    Space.update(spacesShow.space, () => {
+      $state.reload();
+    });
+  }
 
-
+  spacesShow.changeBackground = changeBackground;
   spacesShow.deleteContent = remove;
 }
 
