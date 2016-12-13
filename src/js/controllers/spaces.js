@@ -32,21 +32,26 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
     });
   }
 
-  
+  function changeColor() {
+    Space.update(spacesShow.space, () => {
+      $state.reload();
+    });
+  }
+
+  function save() {
+    spacesShow.space.contents.forEach((content) => {
+      Content.update({ id: content.id }, content, () => {
+        console.log('Deets are saved!');
+      });
+    });
+  }
 
   spacesShow.changeBackground = changeBackground;
+  spacesShow.changeColor = changeColor;
   spacesShow.deleteContent = remove;
+  spacesShow.save = save;
 }
 
 // function isCurrentUser() {
 //   return $auth.getPayload().id === Number($state.params.id);
 // }
-
-// Room.query(data => {
-//     userAppEdit.rooms = [];
-//     data.forEach(item => {
-//       if (item.user_id === parseInt($auth.getPayload().id)){
-//         userAppEdit.rooms.push(item);
-//       }
-//     });
-//   });

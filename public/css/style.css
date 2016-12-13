@@ -1,2 +1,2 @@
-.space-wrapper{height:100%;width:100%;position:absolute}#background{position:inherit;height:95%;width:100%;background-repeat:no-repeat;background-size:cover}.image,img{height:140px;width:280px}.content.text{border-style:none;font-size:16px}
+.space-wrapper{height:100%;width:100%;position:absolute}#background,.image,img{position:inherit;height:100%;width:100%}#background{background-repeat:no-repeat;background-size:cover}.content,.text{border-style:none;font-size:16px}.x-button{z-index:10}
 /*# sourceMappingURL=style.css.map */

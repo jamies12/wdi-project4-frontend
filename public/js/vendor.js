@@ -40071,8 +40071,8 @@ angular.module('dndLists', [])
 	return angular.module('gridster', [])
 
 	.constant('gridsterConfig', {
-		columns: 7, // number of columns in the grid
-		pushing: true, // whether to push other items out of the way
+		columns: 6, // number of columns in the grid
+		pushing: false, // whether to push other items out of the way
 		floating: false, // whether to automatically float items up so they stack
 		swapping: false, // whether or not to have items switch places instead of push down if they are the same size
 		width: 'auto', // width of the grid. "auto" will expand the grid to its parent container
@@ -40086,7 +40086,7 @@ angular.module('dndLists', [])
 		mobileModeEnabled: true, // whether or not to toggle mobile mode when screen width is less than mobileBreakPoint
 		minColumns: 1, // minimum amount of columns the grid can scale down to
 		minRows: 4, // minimum amount of rows to show if the grid is empty
-		maxRows: 100, // maximum amount of rows in the grid
+		maxRows: 6, // maximum amount of rows in the grid
 		defaultSizeX: 2, // default width of an item in columns
 		defaultSizeY: 1, // default height of an item in rows
 		minSizeX: 1, // minimum column width of an item

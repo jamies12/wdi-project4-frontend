@@ -6,22 +6,39 @@
   <button>Change background</button>
 </form>
 
+<form ng-submit="spacesShow.changeColor()">
+  <input type="string" ng-model="spacesShow.space.color" name="color" placeholder="Choose a font color">
+  <button>Change Color</button>
+</form>
 
-<div class="space-wrapper">
+<form ng-submit="spacesShow.save()">
+
+  <button>Save position changes here</button>
+</form>
+
+<a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>
+
+<div class="space-wrapper" ng-style="{color: spacesShow.space.color}">
   <section id="background" style="background-image: url({{spacesShow.space.image}})">
     <h1>{{ spacesShow.space.name }}</h1>
 
 
     <div gridster>
       <ul>
-        <div gridster-item="content" ng-repeat="content in spacesShow.space.contents" ng-class="content.content_type">
+        <div gridster-item="content"
+          row="content.row"
+          col="content.col"
+          size-x="content.sizeX"
+          size-y="content.sizeY"
+          ng-repeat="content in spacesShow.space.contents"
+          ng-class="content.content_type">
           <img ng-src="{{ content.body }}" ng-if="content.content_type === 'image'">
           <p ng-if="content.content_type === 'text'">{{ content.body}}</p>
-          <button ng-click="spacesShow.deleteContent(content)">X</button>
+          <button class="x-button" ng-click="spacesShow.deleteContent(content)">X</button>
         </div>
       </ul>
 
-      <a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>
+
 
     </div>
   </section>
