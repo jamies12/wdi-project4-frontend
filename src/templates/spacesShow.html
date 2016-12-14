@@ -71,6 +71,7 @@
           ng-class="content.content_type">
           <img ng-src="{{ content.body }}" ng-if="content.content_type === 'image'">
           <p ng-if="content.content_type === 'text'">{{ content.body}}</p>
+          <audio ng-src="{{ content.body}}" ng-if="content.content_type === 'audio'"></audio>
           <button class="button" ng-click="spacesShow.deleteContent(content)">X</button>
         </div>
       </ul>
