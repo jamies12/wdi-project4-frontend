@@ -26,6 +26,8 @@ img, .image {
 .x-button {
   z-index: 10;
 }
-// ul[dnd-list], ul[dnd-list] > div {
-//     position: relative;
-// }
+
+.menu {
+  min-height: 300px;
+  padding: 24px;
+}

@@ -1,24 +1,40 @@
-<h1>{{ spacesShow.space.name }}</h1>
-<form ng-submit="spacesShow.changeBackground()">
-  <div>
-    <drag-drop base64="spacesShow.space.base64"></drag-drop>
-  </div>
-  <button>Change background</button>
-</form>
+<div layout="column">
+  <md-menu md-offset="0 95">
+    <md-button ng-click="$mdOpenMenu($event)">
+      <h1>{{ spacesShow.space.name }}</h1>
+    </md-button>
+    <md-menu-content width="8" class="menu">
+      <md-menu-item>
+        <ul>
 
-<form ng-submit="spacesShow.changeColor()">
-  <input type="string" ng-model="spacesShow.space.color" name="color" placeholder="Choose a font color">
-  <button>Change Color</button>
-</form>
+            <li><a ui-sref="spacesNew">Make a new space</a></li>
+            <li><a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a></li>
+            <button><a ng-click="main.logout()">Logout</a></button>
 
-<form ng-submit="spacesShow.save()">
+          <form ng-submit="spacesShow.changeBackground()">
 
-  <button>Save position changes here</button>
-</form>
+            <div>
+              <h3>Change background here</h3>
+              <drag-drop base64="spacesShow.space.base64"></drag-drop>
+            </div>
+            <button>Change background</button>
+          </form>
 
-<button ng-click="spacesShow.deleteSpace()">Delete Space</button>
-<a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>
-<a ui-sref="spacesNew">Make a new space</a>
+          <form ng-submit="spacesShow.changeColor()">
+            <input type="string" ng-model="spacesShow.space.color" name="color" placeholder="Choose a font color">
+            <button>Change Color</button>
+          </form>
+
+          <form ng-submit="spacesShow.save()">
+            <button>Save position changes here</button>
+          </form>
+
+          <button ng-click="spacesShow.deleteSpace()">Delete Space</button>
+        </ul>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+</div>
 
 <div class="space-wrapper" ng-style="{color: spacesShow.space.color}">
   <section id="background" style="background-image: url({{spacesShow.space.image}})">

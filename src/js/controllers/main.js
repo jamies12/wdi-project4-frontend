@@ -11,11 +11,11 @@ function MainController($auth, $state, $rootScope) {
   function logout() {
     $auth.logout()
     .then(() => {
-      $state.go('moodIndex');
+      $state.go('login');
     });
   }
 
-  const protectedStates = ['spacesIndex', 'usersIndex', 'spacesShow', 'contentsNew'];
+  const protectedStates = ['spacesIndex', 'usersIndex', 'spacesShow', 'contentsNew', 'spacesNew'];
   function secureState(e, toState) {
     main.menuVisible = false;
     main.message = null;
@@ -32,7 +32,7 @@ function MainController($auth, $state, $rootScope) {
   main.logout = logout;
 
   function toggleMenu() {
-    main.menuVisible = !main.menuVisible;
+    main.menuVisible = main.menuVisible ? false : true;
   }
 
   main.toggleMenu = toggleMenu;
