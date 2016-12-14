@@ -24,6 +24,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: '/templates/spacesIndex.html',
       controller: 'SpacesIndexController as spacesIndex'
     })
+    .state('spacesNew', {
+      url: '/spaces/new',
+      templateUrl: '/templates/spacesCreate.html',
+      controller: 'SpacesNewController as spacesNew'
+    })
     .state('spacesShow', {
       url: '/spaces/:id',
       templateUrl: '/templates/spacesShow.html',

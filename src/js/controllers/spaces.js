@@ -1,6 +1,7 @@
 angular.module('spaces')
   .controller('SpacesIndexController', SpacesIndexController)
-  .controller('SpacesShowController', SpacesShowController);
+  .controller('SpacesShowController', SpacesShowController)
+  .controller('SpacesNewController', SpacesNewController);
 
 SpacesIndexController.$inject = ['Space', 'User', '$auth'];
 function SpacesIndexController(Space, User, $auth) {
@@ -9,6 +10,22 @@ function SpacesIndexController(Space, User, $auth) {
   spacesIndex.all = Space.query();
 
   spacesIndex.user = User.get({ id: $auth.getPayload().id });
+}
+
+SpacesNewController.$inject = ['Space', '$state', 'User', '$auth'];
+function SpacesNewController(Space, $state, User, $auth) {
+  const spacesNew = this;
+
+  spacesNew.user = User.get({ id: $auth.getPayload().id });
+  spacesNew.newSpace = {};
+
+  function createSpace() {
+    Space.save(spacesNew.newSpace, () => {
+      $state.go('spacesIndex');
+    });
+  }
+
+  spacesNew.create = createSpace;
 }
 
 SpacesShowController.$inject = ['Space', '$state', '$auth', 'User', 'Content'];
@@ -23,6 +40,12 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
   function remove(content) {
     Content.remove({ id: content.id }, () => {
       $state.reload();
+    });
+  }
+
+  function destroy() {
+    Space.remove({ id: $state.params.id }, () => {
+      $state.go('spacesIndex');
     });
   }
 
@@ -49,6 +72,7 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
   spacesShow.changeBackground = changeBackground;
   spacesShow.changeColor = changeColor;
   spacesShow.deleteContent = remove;
+  spacesShow.deleteSpace = destroy;
   spacesShow.save = save;
 }
 

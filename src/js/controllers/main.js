@@ -15,7 +15,7 @@ function MainController($auth, $state, $rootScope) {
     });
   }
 
-  const protectedStates = ['space', 'usersIndex'];
+  const protectedStates = ['spacesIndex', 'usersIndex', 'spacesShow', 'contentsNew'];
   function secureState(e, toState) {
     main.menuVisible = false;
     main.message = null;

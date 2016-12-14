@@ -1,4 +1,4 @@
-
+<h1>{{ spacesShow.space.name }}</h1>
 <form ng-submit="spacesShow.changeBackground()">
   <div>
     <drag-drop base64="spacesShow.space.base64"></drag-drop>
@@ -16,11 +16,13 @@
   <button>Save position changes here</button>
 </form>
 
+<button ng-click="spacesShow.deleteSpace()">Delete Space</button>
 <a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>
+<a ui-sref="spacesNew">Make a new space</a>
 
 <div class="space-wrapper" ng-style="{color: spacesShow.space.color}">
   <section id="background" style="background-image: url({{spacesShow.space.image}})">
-    <h1>{{ spacesShow.space.name }}</h1>
+
 
 
     <div gridster>
