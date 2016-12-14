@@ -2,11 +2,11 @@
   <md-menu md-offset="0 95">
     <md-button ng-click="$mdOpenMenu($event)">
       <h1>{{ spacesShow.space.name }}</h1>
-      <button id="logoutButton"><a ng-click="main.logout()">Logout</a></button>
     </md-button>
     <md-menu-content width="8" class="menu">
       <md-menu-item>
         <ul>
+            <li><a ui-sref="spacesIndex">Spaces</a></li>
             <li><a ui-sref="spacesNew">Make a new space</a></li>
             <li><a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a></li>
             <div>
@@ -54,6 +54,7 @@
     </md-menu-content>
   </md-menu>
 </div>
+<button id="logoutButton"><a ng-click="main.logout()">Logout</a></button>
 <div class="space-wrapper" ng-style="{color: spacesShow.space.color}">
   <section id="background" style="background-image: url({{spacesShow.space.image}})">
 

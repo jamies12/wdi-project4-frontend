@@ -1,29 +1,32 @@
-<h2>Add new content to your space</h2>
+<div class="create-wrapper">
+  <h2>Add new content to your space</h2>
 
-<form ng-submit="contentsNew.create()">
-    <div>
-      <label>
-        Text
-        <input type="radio" name="content_type" value="text" ng-model="contentsNew.newContent.content_type">
-      </label>
-      <label>
-        Image
-        <input type="radio" name="content_type" value="image" ng-model="contentsNew.newContent.content_type">
-      </label>
-      <label>
-        Audio
-        <input type="radio" name="content_type" value="audio" ng-model="contentsNew.newContent.content_type">
-      </label>
-    </div>
+  <form ng-submit="contentsNew.create()">
+      <div>
+        <label>
+          Text
+          <input type="radio" name="content_type" value="text" ng-model="contentsNew.newContent.content_type">
+        </label>
+        <label>
+          Image
+          <input type="radio" name="content_type" value="image" ng-model="contentsNew.newContent.content_type">
+        </label>
+        <label>
+          Audio
+          <input type="radio" name="content_type" value="audio" ng-model="contentsNew.newContent.content_type">
+        </label>
+      </div>
 
-    <div ng-show="contentsNew.newContent.content_type === 'text'">
-      <textarea name="text" type="text" placeholder="text" ng-model="contentsNew.newContent.text"></textarea>
-    </div>
-    <div ng-show="contentsNew.newContent.content_type === 'image'">
-      <drag-drop base64="contentsNew.newContent.base64" name="image" placeholder="image" src="contentsNew.newContent.image"></drag-drop>
-    </div>
-    <div ng-show="contentsNew.newContent.content_type === 'audio'">
-      <drag-drop base64="contentsNew.newContent.base64" name="audio" placeholder="audio" src="contentsNew.newContent.audio"></drag-drop>
-    </div>
-    <button>Add your content</button>
+      <div ng-show="contentsNew.newContent.content_type === 'text'">
+        <textarea id="contentText" name="text" type="text" placeholder="text" ng-model="contentsNew.newContent.text"></textarea>
+      </div>
+      <div ng-show="contentsNew.newContent.content_type === 'image'">
+        <drag-drop base64="contentsNew.newContent.base64" name="image" placeholder="image" src="contentsNew.newContent.image"></drag-drop>
+      </div>
+      <div ng-show="contentsNew.newContent.content_type === 'audio'">
+        <h4>mp3 files only</h4>
+        <drag-drop base64="contentsNew.newContent.base64" name="audio" placeholder="audio" src="contentsNew.newContent.audio"></drag-drop>
+      </div>
+      <button id="contentSubmit">Add your content</button>
   </form>
+</div>

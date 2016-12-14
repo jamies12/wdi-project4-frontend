@@ -66,5 +66,20 @@ div.gridster-div button {
 }
 audio {
   margin: 100px 150px 100px 25px;
-  display: block !important;
+  // display: block !important;
+
+}
+
+.create-wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#contentText {
+  height: 200px;
+  width: 250px;
+}
+
+#contentSubmit {
+  margin: 10px;
 }
