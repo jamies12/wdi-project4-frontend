@@ -33,7 +33,16 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
   const spacesShow = this;
 
   spacesShow.user = User.get({ id: $auth.getPayload().id });
-  spacesShow.space = Space.get({ id: $state.params.id });
+  Space.get({ id: $state.params.id }, data => {
+    spacesShow.space = data;
+    spacesShow.space.contents.forEach(item => {
+      if (item.body.includes('.mp3')) {
+        item.content_type = 'audio';
+      }
+    });
+    console.log(spacesShow.space);
+  }
+  );
 
   spacesShow.isLoggedIn = $auth.isAuthenticated;
 

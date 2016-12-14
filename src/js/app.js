@@ -1,4 +1,4 @@
-angular.module('spaces', ['ngResource', 'ui.router', 'satellizer', 'gridster', 'ngFileUpload'])
+angular.module('spaces', ['ngResource', 'ui.router', 'satellizer', 'gridster', 'ngAnimate', 'ngMaterial', 'ngFileUpload'])
   .constant('API_URL', 'http://localhost:3000/api')
   .config(Auth);
 

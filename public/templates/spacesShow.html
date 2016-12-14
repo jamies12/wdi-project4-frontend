@@ -1,25 +1,59 @@
-<h1>{{ spacesShow.space.name }}</h1>
-<form ng-submit="spacesShow.changeBackground()">
-  <div>
-    <drag-drop base64="spacesShow.space.base64"></drag-drop>
-  </div>
-  <button>Change background</button>
-</form>
+<div layout="column">
+  <md-menu md-offset="0 95">
+    <md-button ng-click="$mdOpenMenu($event)">
+      <h1>{{ spacesShow.space.name }}</h1>
+      <button id="logoutButton"><a ng-click="main.logout()">Logout</a></button>
+    </md-button>
+    <md-menu-content width="8" class="menu">
+      <md-menu-item>
+        <ul>
+            <li><a ui-sref="spacesNew">Make a new space</a></li>
+            <li><a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a></li>
+            <div>
+              <label>
+                <li>Change Background
+                  <input type="radio" name="menu_choice" value="background" ng-model="menu_choice">
+                </li>
+              </label>
+              <label>
+                <li>Change font colour
+                  <input type="radio" name="menu_choice" value="font_color" ng-model="menu_choice">
+                </li>
+                <form ng-submit="spacesShow.changeColor()" ng-show="menu_choice === 'font_color'">
+                  <input type="string" ng-model="spacesShow.space.color" name="color" placeholder="Choose a font color">
+                  <button>Change Color</button>
+                </form>
+              </label>
+              <label>
+                <li>
+                  Save changes in layout
+                  <input type="radio" name="menu_choice" value="layout" ng-model="menu_choice">
+                </li>
+                <form ng-submit="spacesShow.save()" ng-show="menu_choice === 'layout'">
+                  <button id="posSave">Save</button>
+                </form>
+              </label>
+              <label>
+                <li>
+                  Delete current space
+                  <input type="radio" name="menu_choice" value="remove" ng-model="menu_choice">
+                </li>
+                <button id="spaceDelete" ng-click="spacesShow.deleteSpace()" ng-show="menu_choice === 'remove'">Delete Space</button>
+              </label>
+            </div>
+        </ul>
+          <form ng-submit="spacesShow.changeBackground()" ng-show="menu_choice === 'background'">
 
-<form ng-submit="spacesShow.changeColor()">
-  <input type="string" ng-model="spacesShow.space.color" name="color" placeholder="Choose a font color">
-  <button>Change Color</button>
-</form>
-
-<form ng-submit="spacesShow.save()">
-
-  <button>Save position changes here</button>
-</form>
-
-<button ng-click="spacesShow.deleteSpace()">Delete Space</button>
-<a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a>
-<a ui-sref="spacesNew">Make a new space</a>
-
+            <div>
+              <h3>Change background here</h3>
+              <drag-drop base64="spacesShow.space.base64"></drag-drop>
+            </div>
+            <button>Change background</button>
+          </form>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+</div>
 <div class="space-wrapper" ng-style="{color: spacesShow.space.color}">
   <section id="background" style="background-image: url({{spacesShow.space.image}})">
 
@@ -27,7 +61,7 @@
 
     <div gridster>
       <ul>
-        <div gridster-item="content"
+        <div class="gridster-div" gridster-item="content"
           row="content.row"
           col="content.col"
           size-x="content.sizeX"
@@ -36,7 +70,8 @@
           ng-class="content.content_type">
           <img ng-src="{{ content.body }}" ng-if="content.content_type === 'image'">
           <p ng-if="content.content_type === 'text'">{{ content.body}}</p>
-          <button class="x-button" ng-click="spacesShow.deleteContent(content)">X</button>
+          <audio controls="true" ng-src="{{ content.body}}" ng-if="content.content_type === 'audio'"></audio>
+          <button class="button" ng-click="spacesShow.deleteContent(content)">X</button>
         </div>
       </ul>
 
