@@ -1,4 +1,4 @@
-<section>
+<section class="create-wrapper">
   <form novalidate ng-submit="login.submit()">
     <div>
       <label>Username</label>
@@ -9,6 +9,7 @@
       <input type="password" placeholder="Password" ng-model="login.credentials.password">
     </div>
 
-    <button>Login</button>
+    <button class="btn">Login</button>
   </form>
+  <button class="btn"><a ui-sref="register">Register here</a></button>
 </section>

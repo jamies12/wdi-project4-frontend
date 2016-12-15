@@ -1,10 +1,11 @@
 <h1>Choose which space you'd like to go to</h1>
-<button id="logoutButton"><a ng-click="main.logout()">Logout</a></button>
+<button id="newSpaceButton"><a ui-sref="spacesNew">Make a new space</a></button>
+<button id="logoutButton2"><a ng-click="main.logout()">Logout</a></button>
 
   <ul>
-    <li><a ui-sref="spacesNew">Make a new space</a></li>
-    <li>Current spaces:</li>
-    <li ng-repeat="space in spacesIndex.all">
-      <a ui-sref="spacesShow({ id: space.id })">{{ space.name }}</a>
-    </li>
+    <ul id="spacesList">
+      <div class="space-to-choose" ng-repeat="space in spacesIndex.all">
+        <a ui-sref="spacesShow({ id: space.id })">{{ space.name }}</a>
+      </div>
+    </ul>
   </ul>

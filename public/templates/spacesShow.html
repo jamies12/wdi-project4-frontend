@@ -1,60 +1,61 @@
 <div layout="column">
-  <md-menu md-offset="0 95">
-    <md-button ng-click="$mdOpenMenu($event)">
-      <h1>{{ spacesShow.space.name }}</h1>
+  <h1>{{ spacesShow.space.name }}</h1>
+  <button id="logoutButton"><a ng-click="main.logout()">Logout</a></button>
+  <md-menu md-offset="0 55">
+    <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
+      <md-icon><i class="material-icons">list</i></md-icon>
     </md-button>
     <md-menu-content width="8" class="menu">
       <md-menu-item>
         <ul>
-            <li><a ui-sref="spacesIndex">Spaces</a></li>
-            <li><a ui-sref="spacesNew">Make a new space</a></li>
-            <li><a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a></li>
+            <li><button class="menu-button"><a ui-sref="spacesIndex">Spaces</a></button></li>
+            <li><button class="menu-button"><a ui-sref="spacesNew">Make a new space</a></button></li>
+            <li><button class="menu-button"><a ui-sref="contentsNew({ id: spacesShow.space.id })">Add content</a></button></li>
             <div>
               <label>
-                <li>Change Background
+                <li class="menu-list">Change Background
                   <input type="radio" name="menu_choice" value="background" ng-model="menu_choice">
                 </li>
               </label>
               <label>
-                <li>Change font colour
+                <li class="menu-list">Change font colour
                   <input type="radio" name="menu_choice" value="font_color" ng-model="menu_choice">
-                </li>
+                </li class="menu-list">
                 <form ng-submit="spacesShow.changeColor()" ng-show="menu_choice === 'font_color'">
                   <input type="string" ng-model="spacesShow.space.color" name="color" placeholder="Choose a font color">
-                  <button>Change Color</button>
+                  <button class="btn">Change Color</button>
                 </form>
               </label>
               <label>
-                <li>
+                <li class="menu-list">
                   Save changes in layout
                   <input type="radio" name="menu_choice" value="layout" ng-model="menu_choice">
                 </li>
                 <form ng-submit="spacesShow.save()" ng-show="menu_choice === 'layout'">
-                  <button id="posSave">Save</button>
+                  <button class="btn" id="posSave">Save</button>
                 </form>
               </label>
               <label>
-                <li>
+                <li class="menu-list">
                   Delete current space
                   <input type="radio" name="menu_choice" value="remove" ng-model="menu_choice">
                 </li>
-                <button id="spaceDelete" ng-click="spacesShow.deleteSpace()" ng-show="menu_choice === 'remove'">Delete Space</button>
+                <button id="spaceDelete" class="btn" ng-click="spacesShow.deleteSpace()" ng-show="menu_choice === 'remove'">Delete Space</button>
               </label>
             </div>
         </ul>
           <form ng-submit="spacesShow.changeBackground()" ng-show="menu_choice === 'background'">
 
             <div>
-              <h3>Change background here</h3>
+              <h3 class="create">Change background here</h3>
               <drag-drop base64="spacesShow.space.base64"></drag-drop>
             </div>
-            <button>Change background</button>
+            <button class="btn">Change background</button>
           </form>
       </md-menu-item>
     </md-menu-content>
   </md-menu>
 </div>
-<button id="logoutButton"><a ng-click="main.logout()">Logout</a></button>
 <div class="space-wrapper" ng-style="{color: spacesShow.space.color}">
   <section id="background" style="background-image: url({{spacesShow.space.image}})">
 
@@ -75,7 +76,7 @@
           <video ng-src="{{ content.body }}" controls ng-if="content.content_type === 'video'" height="300px" width="340px">
 
           </video>
-          <button class="button" ng-click="spacesShow.deleteContent(content)">X</button>
+          <button class="button btn" ng-click="spacesShow.deleteContent(content)">X</button>
         </div>
       </ul>
 

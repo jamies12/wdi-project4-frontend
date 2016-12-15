@@ -1,8 +1,10 @@
-<h2>Make a new space!</h2>
+<div class="create-wrapper">
+  <h2>Make a new space!</h2>
 
-<form ng-submit="spacesNew.create()">
-    <div>
-      <input name="name" type="string" placeholder="name of your new space" ng-model="spacesNew.newSpace.name"></input>
-    </div>
-    <button>Add your content</button>
-  </form>
+  <form ng-submit="spacesNew.create()">
+      <div>
+        <input name="name" type="string" placeholder="name of your new space" ng-model="spacesNew.newSpace.name"></input>
+      </div>
+      <button class="btn">Create!</button>
+    </form>
+</div>

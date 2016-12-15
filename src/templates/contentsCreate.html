@@ -3,19 +3,19 @@
 
   <form ng-submit="contentsNew.create()">
       <div>
-        <label>
+        <label class="create">
           Text
           <input type="radio" name="content_type" value="text" ng-model="contentsNew.newContent.content_type">
         </label>
-        <label>
+        <label class="create">
           Image
           <input type="radio" name="content_type" value="image" ng-model="contentsNew.newContent.content_type">
         </label>
-        <label>
+        <label class="create">
           Audio
           <input type="radio" name="content_type" value="audio" ng-model="contentsNew.newContent.content_type">
         </label>
-        <label>
+        <label class="create">
           Video
           <input type="radio" name="content_type" value="video" ng-model="contentsNew.newContent.content_type">
         </label>
@@ -35,6 +35,6 @@
         <h4>mp4 files only</h4>
         <drag-drop base64="contentsNew.newContent.base64" name="video" placeholder="video" src="contentsNew.newContent.video"></drag-drop>
       </div>
-      <button id="contentSubmit">Add your content</button>
+      <button id="contentSubmit" class="btn">Add your content</button>
   </form>
 </div>
