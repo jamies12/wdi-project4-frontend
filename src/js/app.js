@@ -1,5 +1,5 @@
 angular.module('spaces', ['ngResource', 'ui.router', 'satellizer', 'gridster', 'ngAnimate', 'ngMaterial', 'ngFileUpload'])
-  .constant('API_URL', 'http://localhost:3000/api')
+  .constant('API_URL', window.location.hostname === 'localhost' ? 'http://localhost:3000' : '//wdi-project4-spaces-api.herokuapp.com')
   .config(Auth);
 
 Auth.$inject = ['$authProvider', 'API_URL'];
