@@ -38,6 +38,8 @@ function SpacesShowController(Space, $state, $auth, User, Content) {
     spacesShow.space.contents.forEach(item => {
       if (item.body.includes('.mp3')) {
         item.content_type = 'audio';
+      } if (item.body.includes('.mp4')) {
+        item.content_type = 'video';
       }
     });
     console.log(spacesShow.space);
